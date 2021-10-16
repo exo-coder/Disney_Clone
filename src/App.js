@@ -1,9 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
+import { Router, Route } from 'react-router';
 
-function App() {
+export default function App() {
   return (
-   <></>
-  );
+   <Main>
+     
+   </Main>
+  )
 }
 
-export default App;
+const Main = styled.div``
+
+;
