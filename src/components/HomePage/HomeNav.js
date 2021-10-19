@@ -5,13 +5,18 @@ export default function HomeNav() {
     return (
         <Main>
             <img src="" alt="" />
-            <button className="sign-in">
-                Sign in
+            <button className="logIn">
+                Login
             </button>
         </Main>
     )
 }
 
 const Main = styled.div`
+display: flex;
+
+.logIn {
+
+}
 
 `;

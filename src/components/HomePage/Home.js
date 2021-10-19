@@ -13,5 +13,5 @@ export default function Home() {
 }
 
 const Main = styled.div`
-
+  overflow: hidden;
 `;
