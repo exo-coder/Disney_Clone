@@ -16,7 +16,7 @@ justify-content: space-between;
 height: 70px;
 align-items: center;
 padding: 0 30px;
-padding-top: 10px;
+padding-top: 15px;
 `;
 
 const NavLogo = styled.img`
