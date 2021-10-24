@@ -1,8 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 import { navMenuData } from "./data/Sitedata";
+//firebase stuff
+import initializeFirebase from "../../firebase";
+import { getAuth, signOut } from "firebase/auth";
+import { useHistory } from "react-router";
+
 
 export default function SiteNav() {
+  const history = useHistory();
+  const auth = getAuth(initializeFirebase);
+
+  function signingOut() {
+    signOut(auth)
+    .then(() => {
+      history.push("/");
+      console.log("sign outed now...");
+    }).catch((error) => {
+      console.log(error);
+    })
+  }
   return (
     <Main>
       <NavLogo src="/images/logo.svg" />
@@ -16,7 +33,7 @@ export default function SiteNav() {
           )
         })}
       </NavMenu>
-      <NavBtn>LOG IN</NavBtn>
+      <NavBtn onClick={signingOut}>LOG OUT</NavBtn>
     </Main>
   );
 }
