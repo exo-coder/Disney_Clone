@@ -5,9 +5,8 @@ import SiteNav from './SiteNav';
 const SiteBg = "/images/site-bg-pc.png"
 export default function Site() {
     return (
-        <Main>
+        <Main style={{backgroundImage: `url(${SiteBg})`}}>
            <SiteNav />
-          
         </Main>
     )
 }

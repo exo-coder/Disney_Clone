@@ -20,7 +20,7 @@ padding-top: 15px;
 `;
 
 const NavLogo = styled.img`
-width: 100px;
+width: 90px;
 `;
 
 const NavBtn = styled.button`

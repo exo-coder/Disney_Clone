@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { bannData } from "./data/data";
+import { bannData } from "./data/Homedata";
 import HomeNav from "./HomeNav";
 
 export default function HomeBann() {
