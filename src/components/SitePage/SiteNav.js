@@ -11,7 +11,7 @@ export default function SiteNav() {
   const history = useHistory();
   const auth = getAuth(initializeFirebase);
 
-  function signingOut() {
+  function logOut() {
     signOut(auth)
     .then(() => {
       history.push("/");
@@ -33,7 +33,7 @@ export default function SiteNav() {
           )
         })}
       </NavMenu>
-      <NavBtn onClick={signingOut}>LOG OUT</NavBtn>
+      <NavBtn onClick={logOut}>LOG OUT</NavBtn>
     </Main>
   );
 }

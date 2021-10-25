@@ -7,7 +7,7 @@ import { signInWithPopup, GoogleAuthProvider, getAuth } from "firebase/auth";
 const auth = getAuth(initializeFirebase);
 const provider = new GoogleAuthProvider();
 export default function HomeNav() {
-  const signIn = () => {
+  const login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result);
@@ -19,7 +19,7 @@ export default function HomeNav() {
   return (
     <Main>
       <NavLogo src="/images/logo.svg" />
-      <NavBtn onClick={signIn}>LOG IN</NavBtn>
+      <NavBtn onClick={login}>LOG IN</NavBtn>
     </Main>
   );
 }
