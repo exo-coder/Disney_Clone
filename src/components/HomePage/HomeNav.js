@@ -1,25 +1,49 @@
 import React from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router";
 //firebase stuff
 import initializeFirebase from "../../firebase";
 import { signInWithPopup, GoogleAuthProvider, getAuth } from "firebase/auth";
+//Redux
+import { useDispatch } from "react-redux";
+import { setUserLoginDetails } from "../../event/user/userSlice";
 
 const auth = getAuth(initializeFirebase);
 const provider = new GoogleAuthProvider();
+
 export default function HomeNav() {
-  const login = () => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  //fire-base login auth
+  const Login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log(result);
+        history.push("site");
+        userInfo(result.user);
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
+  //user information came from firebase result which we send it
+  //to the store and dispatch to sates => then use it as state =>
+  //useSelector ==> username & user photo
+  const userInfo = (user) => {
+    dispatch(
+      setUserLoginDetails({
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+      })
+    );
+  };
+
   return (
     <Main>
       <NavLogo src="/images/logo.svg" />
-      <NavBtn onClick={login}>LOG IN</NavBtn>
+      <NavBtn onClick={Login}>LOG IN</NavBtn>
     </Main>
   );
 }
