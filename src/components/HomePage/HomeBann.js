@@ -92,7 +92,7 @@ const CtaBtn = styled.a`
 
 const Descripction = styled.p`
   color: hsla(0, 0%, 95%, 1);
-  font-size: 12px;
+  font-size: 13px;
   margin: 0 0 15px;
   line-height: 1.5;
   letter-spacing: 1px;
