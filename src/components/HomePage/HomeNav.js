@@ -31,7 +31,7 @@ export default function HomeNav() {
         history.push("site");
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   };
 

@@ -19,8 +19,8 @@ export default function SiteSlider() {
     <Main {...sliderSettings}>
       {sliderData.map((item) => {
         return (
-          <Wrap>
-            <a key={item.id}>
+          <Wrap key={item.id}>
+            <a>
               <img src={item.img} alt="" />
             </a>
           </Wrap>

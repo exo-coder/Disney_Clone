@@ -1,26 +1,26 @@
-import React from 'react'
-import styled from 'styled-components'
-import { viewverData } from './data/Sitedata';
+import React from "react";
+import styled from "styled-components";
+import { viewverData } from "./data/Sitedata";
 
 export default function SiteViewers() {
-    return (
-        <Main>
-            {viewverData.map((item) => {
-                return (
-                    <Wrap key={item.id}>
-                    <img src={item.img} alt="" />
-                    <video autoPlay={true} loop={true} playsInline={true}>
-                      <source src={item.vid} type="video/mp4" />
-                    </video>
-                  </Wrap>
-                )
-            })}
-        </Main>
-    )
+  return (
+    <Main>
+      {viewverData.map((item) => {
+        return (
+          <Wrap key={item.id}>
+            <img src={item.img} alt="" />
+            <video autoPlay={true} loop={true} playsInline={true}>
+              <source src={item.vid} type="video/mp4" />
+            </video>
+          </Wrap>
+        );
+      })}
+    </Main>
+  );
 }
 
 const Main = styled.div`
- margin-top: 30px;
+  margin-top: 30px;
   padding: 30px 0px 26px;
   display: grid;
   grid-gap: 25px;
@@ -57,7 +57,7 @@ const Wrap = styled.div`
     width: 100%;
     height: 100%;
     position: absolute;
-    top: 0px;
+    top: 0;
     opacity: 0;
     z-index: 0;
   }
