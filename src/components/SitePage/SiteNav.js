@@ -6,8 +6,8 @@ import initializeFirebase from "../../firebase";
 import { getAuth, signOut } from "firebase/auth";
 import { useHistory } from "react-router";
 //redux calling
-import { useSelector } from "react-redux";
-import { selectUserName, selectUserPhoto } from "../../event/user/userSlice";
+import { useSelector , useDispatch } from "react-redux";
+import { selectUserName, selectUserPhoto , setUserLogoutState  } from "../../event/user/userSlice";
 
 const auth = getAuth(initializeFirebase);
 
@@ -16,10 +16,12 @@ export default function SiteNav() {
 
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
+  const dispatch = useDispatch();
 
   function logOut() {
     signOut(auth)
       .then(() => {
+        dispatch(setUserLogoutState());
         history.push("/");
       })
       .catch((error) => {
@@ -42,9 +44,9 @@ export default function SiteNav() {
       </NavMenu>
       {userName ? (
         <LogOutDropDown>
-          <UserImg src={userPhoto} alt={userName} />
+          <UserImg  onClick={logOut} src={userPhoto} alt={userName} />
           <DropDown>
-            <span onClick={logOut}>Exit</span>
+            <span>Exit</span>
           </DropDown>
         </LogOutDropDown>
       ) : (
@@ -95,7 +97,7 @@ const NavMenu = styled.div`
   margin-right: auto;
   margin-left: 25px;
 
-  @media (max-width: 1000px) {
+  @media (max-width: 900px) {
     display: none;
   }
 
