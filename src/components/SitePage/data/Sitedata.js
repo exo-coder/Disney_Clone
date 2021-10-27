@@ -40,11 +40,11 @@ export const navMenuData = [
 export const sliderData = [
     {
         id: 1,
-        img: "/images/slider-badging.jpg"
+        img: "/images/slider-scale.jpg" 
     },
     {
         id: 2,
-        img: "/images/slider-scale.jpg"
+        img: "/images/slider-badging.jpg"
     },
     {
         id: 3,
